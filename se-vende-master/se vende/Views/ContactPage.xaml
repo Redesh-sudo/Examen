@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:se_vende.Views"
+             xmlns:converters="clr-namespace:se_vende.Converters"
+             x:Class="se_vende.Views.ContactPage">
+
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <converters:ZeroToFalseConverter x:Key="ZeroToFalseConverter" />
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
+    <StackLayout Padding="10">
+        <Entry x:Name="nameEntry" Placeholder="Name" Text="{Binding Name}" />
+        <Entry x:Name="phoneEntry" Placeholder="Phone" Text="{Binding Phone}" />
+        <Entry x:Name="emailEntry" Placeholder="Email" Text="{Binding Email}" />
+
+        <Button Text="Save" Clicked="OnSaveButtonClicked" />
+        <Button Text="Delete" Clicked="OnDeleteButtonClicked" IsVisible="{Binding Id, Converter={StaticResource ZeroToFalseConverter}}" />
+    </StackLayout>
+
+</ContentPage>
